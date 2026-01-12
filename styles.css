@@ -261,6 +261,41 @@ section p {
     margin-top: 5px;
 }
 
+.timeline-item .location a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    transition: color 0.3s;
+}
+
+.timeline-item .location a::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
+    margin-left: 2px;
+    flex-shrink: 0;
+    transition: opacity 0.3s;
+}
+
+.timeline-item .location a:hover,
+.timeline-item .location a:active {
+    color: #764ba2;
+}
+
+.timeline-item .location a:hover::after,
+.timeline-item .location a:active::after {
+    opacity: 0.8;
+}
+
 /* Event Card */
 .event-card {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -293,13 +328,35 @@ section p {
     color: #667eea;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s;
-    border-bottom: 2px solid transparent;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.event-card .restaurant a:hover {
+.event-card .restaurant a::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
+    margin-left: 4px;
+    flex-shrink: 0;
+    transition: opacity 0.3s;
+}
+
+.event-card .restaurant a:hover,
+.event-card .restaurant a:active {
     color: #764ba2;
-    border-bottom-color: #764ba2;
+}
+
+.event-card .restaurant a:hover::after,
+.event-card .restaurant a:active::after {
+    opacity: 0.8;
 }
 
 .event-card p {
@@ -333,17 +390,43 @@ section p {
     color: #667eea;
     text-decoration: none;
     font-size: 14px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     margin-top: 10px;
-    padding: 8px 15px;
+    padding: 8px 16px;
     border: 1px solid #667eea;
     border-radius: 20px;
     transition: all 0.3s;
+    font-weight: 500;
 }
 
-.hotel-card a:hover {
+.hotel-card a::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
+    flex-shrink: 0;
+    transition: opacity 0.3s;
+}
+
+.hotel-card a:hover,
+.hotel-card a:active {
     background: #667eea;
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.hotel-card a:hover::after,
+.hotel-card a:active::after {
+    opacity: 0.9;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
 }
 
 /* Footer */
