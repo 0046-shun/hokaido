@@ -1,0 +1,543 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+    line-height: 1.8;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
+
+/* Header */
+header {
+    /* 背景画像 + グラデーションオーバーレイ */
+    background-image: url('img/snowfes_top.png'),
+                      linear-gradient(135deg, rgba(102, 126, 234, 0.75) 0%, rgba(118, 75, 162, 0.75) 100%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* 画像がない場合のフォールバック: グラデーション背景 */
+    background-color: #667eea;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: float 20s infinite linear;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-50px, -50px) rotate(360deg); }
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5),
+                 0 0 20px rgba(0, 0, 0, 0.3),
+                 0 0 40px rgba(102, 126, 234, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    letter-spacing: 2px;
+    line-height: 1.4;
+}
+
+header .subtitle {
+    font-size: 20px;
+    position: relative;
+    z-index: 2;
+    font-weight: 500;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5),
+                 0 0 15px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    padding: 12px 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+/* Navigation */
+nav {
+    background: #fff;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    color: #667eea;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: all 0.3s;
+    border: 1px solid #667eea;
+}
+
+nav a:hover {
+    background: #667eea;
+    color: white;
+}
+
+nav a.active {
+    background: #667eea;
+    color: white;
+}
+
+/* Section */
+section {
+    padding: 40px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+section h2 {
+    font-size: 22px;
+    color: #667eea;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #764ba2;
+}
+
+section h3 {
+    font-size: 18px;
+    color: #555;
+    margin: 25px 0 15px 0;
+}
+
+section p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    text-align: justify;
+}
+
+/* Schedule Table */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.schedule-table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.schedule-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.schedule-table tr:last-child td {
+    border-bottom: none;
+}
+
+.schedule-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    margin: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #667eea;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #667eea;
+}
+
+.timeline-item h4 {
+    color: #667eea;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.timeline-item .time {
+    font-weight: 600;
+    color: #764ba2;
+    font-size: 14px;
+}
+
+.timeline-item .location {
+    color: #666;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* Event Card */
+.event-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.event-card h4 {
+    color: #667eea;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.event-card .date {
+    color: #764ba2;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.event-card .restaurant {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.event-card .restaurant a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.event-card .restaurant a:hover {
+    color: #764ba2;
+    border-bottom-color: #764ba2;
+}
+
+.event-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Hotel Card */
+.hotel-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.hotel-card h4 {
+    color: #667eea;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.hotel-card .date {
+    color: #764ba2;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.hotel-card a {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: 1px solid #667eea;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.hotel-card a:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* Footer */
+footer {
+    /* 背景画像 + グラデーションオーバーレイ */
+    background-image: url('img/otaru.webp'),
+                      linear-gradient(135deg, rgba(102, 126, 234, 0.75) 0%, rgba(118, 75, 162, 0.75) 100%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* 画像がない場合のフォールバック: グラデーション背景 */
+    background-color: #667eea;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+}
+
+footer p {
+    margin-bottom: 12px;
+    font-size: 18px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    font-weight: 600;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5),
+                 0 0 15px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 12px 30px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    letter-spacing: 1.5px;
+    display: inline-block;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 20px;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fade In Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 60px 15px;
+        min-height: 200px;
+    }
+
+    header h1 {
+        font-size: 24px;
+        padding: 15px 25px;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    header .subtitle {
+        font-size: 16px;
+        padding: 10px 20px;
+        letter-spacing: 0.5px;
+    }
+
+    section {
+        padding: 30px 15px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+
+    .schedule-table {
+        font-size: 12px;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        padding: 8px;
+    }
+
+    .timeline {
+        padding-left: 25px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    footer {
+        padding: 50px 15px;
+        min-height: 160px;
+    }
+
+    footer p {
+        font-size: 16px;
+        padding: 10px 20px;
+        letter-spacing: 1px;
+    }
+
+    footer p:last-child {
+        font-size: 14px;
+        padding: 6px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 50px 15px;
+        min-height: 180px;
+    }
+
+    header h1 {
+        font-size: 20px;
+        padding: 12px 20px;
+        letter-spacing: 0.5px;
+        margin-bottom: 12px;
+        border-radius: 12px;
+    }
+
+    header .subtitle {
+        font-size: 14px;
+        padding: 8px 15px;
+        letter-spacing: 0.3px;
+        border-radius: 8px;
+    }
+
+    .schedule-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        white-space: nowrap;
+        min-width: 100px;
+    }
+
+    footer {
+        padding: 40px 15px;
+        min-height: 140px;
+    }
+
+    footer p {
+        font-size: 14px;
+        padding: 8px 15px;
+        letter-spacing: 0.5px;
+        border-radius: 10px;
+    }
+
+    footer p:last-child {
+        font-size: 12px;
+        padding: 6px 12px;
+        letter-spacing: 0.3px;
+    }
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+    border-left: 4px solid #ff6b6b;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.highlight-box p {
+    color: #c92a2a;
+    font-weight: 600;
+    text-align: center;
+}
