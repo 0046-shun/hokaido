@@ -5,245 +5,246 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>結婚のご報告と両家顔合わせ ご旅行のご案内</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .top-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f0f8 0%, #d1e0f0 50%, #b8d4e8 100%);
+        }
+
+        .top-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        .top-content h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8),
+                         0 0 20px rgba(135, 206, 250, 0.3);
+            letter-spacing: 3px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease-out 0.3s forwards,
+                       shimmer 3s ease-in-out 0.3s infinite;
+        }
+
+        .top-content .subtitle {
+            font-size: 22px;
+            color: #34495e;
+            margin-bottom: 40px;
+            font-weight: 500;
+            text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.6);
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease-out 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8),
+                             0 0 20px rgba(135, 206, 250, 0.3);
+            }
+            50% {
+                text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9),
+                             0 0 30px rgba(135, 206, 250, 0.5),
+                             0 0 40px rgba(176, 224, 230, 0.3);
+            }
+        }
+
+        .enter-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            color: #5a9bd4;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border: 2px solid rgba(135, 206, 250, 0.5);
+            box-shadow: 0 8px 24px rgba(135, 206, 250, 0.3),
+                        0 0 20px rgba(255, 255, 255, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            animation: fadeInUpButton 1s ease-out 1.4s forwards;
+        }
+
+        @keyframes fadeInUpButton {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .enter-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(135, 206, 250, 0.4),
+                        0 0 30px rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .enter-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* 雪のアニメーション用 */
+        .snowflake {
+            position: absolute;
+            color: white;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(var(--drift)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-content h1 {
+                font-size: 28px;
+                letter-spacing: 2px;
+            }
+
+            .top-content .subtitle {
+                font-size: 18px;
+                letter-spacing: 1px;
+            }
+
+            .enter-button {
+                padding: 15px 40px;
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <div class="top-page">
+        <div class="top-content">
             <h1>結婚のご報告と両家顔合わせ</h1>
             <div class="subtitle">ご旅行のご案内</div>
-        </header>
-
-        <nav>
-            <a href="#intro">はじめに</a>
-            <a href="#overview">旅行概要</a>
-            <a href="#shinjo">新城家様</a>
-            <a href="#oshiro">大城家様</a>
-            <a href="#events">イベント</a>
-            <a href="#hotels">宿泊施設</a>
-            <a href="#closing">おわりに</a>
-        </nav>
-
-        <section id="intro" class="fade-in">
-            <h2>1.0 はじめに</h2>
-            <p>この度、私たち<strong>大城 駿</strong>と<strong>新城 友梨</strong>は婚約いたしましたことを、両家の皆様にご報告申し上げます。</p>
-            <p>日頃より温かいご支援を賜り、心より感謝申し上げます。</p>
-            <p>つきましては、結婚を前に両家が初めて顔を合わせる大切な機会として、下記の通り、北海道での顔合わせ会食とご旅行を企画いたしました。</p>
-            <p>本サイトは、皆様が心から安心して特別な時間をお過ごしいただけますよう、旅程や各種手配をまとめたものです。</p>
-            <p>皆様にお目にかかれることを心待ちにしております。</p>
-        </section>
-
-        <section id="overview" class="fade-in">
-            <h2>2.0 旅行概要</h2>
-            <p>札幌での厳かな両家顔合わせの会食、そして翌日の小樽での和やかな観光となります。ご旅行全体の流れを皆様で共有いただけますよう、以下に全日程の概要をまとめました。</p>
-            
-            <table class="schedule-table">
-                <thead>
-                    <tr>
-                        <th>日付（曜日）</th>
-                        <th>主な予定</th>
-                        <th>場所</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>3月7日（土）</td>
-                        <td>各自札幌へ移動、新城家へご挨拶の会食</td>
-                        <td>札幌</td>
-                    </tr>
-                    <tr>
-                        <td>3月8日（日）</td>
-                        <td>大城家札幌到着、両家顔合わせ会食</td>
-                        <td>札幌</td>
-                    </tr>
-                    <tr>
-                        <td>3月9日（月）</td>
-                        <td>両家で小樽日帰り観光、ジンギスカン会食</td>
-                        <td>小樽・札幌</td>
-                    </tr>
-                    <tr>
-                        <td>3月10日（火）</td>
-                        <td>各自帰路へ</td>
-                        <td>新千歳空港</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p>各ご家庭の移動行程や、詳細な時間につきましては、次章以降で個別にご案内いたします。</p>
-        </section>
-
-        <section id="shinjo" class="fade-in">
-            <h2>3.0 新城家様向け行程詳細</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>3月7日（土）</h4>
-                    <div class="time">8:00</div>
-                    <div class="location">那覇空港 発、羽田空港へ</div>
-                    <div class="time" style="margin-top: 10px;">12:00</div>
-                    <div class="location">羽田空港 発、新千歳空港へ</div>
-                    <div class="time" style="margin-top: 10px;">13:35</div>
-                    <div class="location">新千歳空港 着</div>
-                    <div class="time" style="margin-top: 10px;">14:00</div>
-                    <div class="location">新千歳空港より札幌駅へ移動</div>
-                    <div class="time" style="margin-top: 10px;">15:00</div>
-                    <div class="location">ホテル「ランプライトブックスホテル札幌」へチェックイン</div>
-                    <div class="time" style="margin-top: 10px;">19:00</div>
-                    <div class="location">会食（於：<a href="https://tabelog.com/hokkaido/A0101/A010103/1000442/" target="_blank">鳥八の魚や</a>）にて大城駿より新城家へご挨拶の会食</div>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>3月8日（日）</h4>
-                    <div class="time">10:00</div>
-                    <div class="location">ホテルをチェックアウト</div>
-                    <div class="time" style="margin-top: 10px;">10:00～15:00</div>
-                    <div class="location">札幌市内にて自由行動</div>
-                    <div class="time" style="margin-top: 10px;">15:00</div>
-                    <div class="location">ホテル「FAV LUX 札幌すすきの」へチェックイン</div>
-                    <div class="time" style="margin-top: 10px;">18:00</div>
-                    <div class="location">両家顔合わせ会食（於：<a href="https://www.hyousetsu.co.jp/?lad_media=lis_google&lec_tm=c-10099729.m-1.a-295088679.d-c.kwd-738946907651.kw-858393857.aw-33795937.ak-6819406232.as-&gad_source=1&gad_campaignid=20065564069&gbraid=0AAAAAplft7nKlogPsPg3poxhW1OZljapC&gclid=Cj0KCQiAsY3LBhCwARIsAF6O6XiQ1tznbIXao2HFrzHB08eJV_2OgTu4IeweBtS1hL0gRI723giEeWgaAh9jEALw_wcB" target="_blank">氷雪の門</a>）</div>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>3月9日（月）</h4>
-                    <div class="time">9:00</div>
-                    <div class="location">皆様でホテルを出発し、小樽へ</div>
-                    <div class="time" style="margin-top: 10px;">10:00～15:00</div>
-                    <div class="location">小樽市内にて自由行動・観光</div>
-                    <div class="time" style="margin-top: 10px;">16:00</div>
-                    <div class="location">札幌のホテルへ帰着</div>
-                    <div class="time" style="margin-top: 10px;">16:00～20:00</div>
-                    <div class="location">自由行動</div>
-                    <div class="time" style="margin-top: 10px;">20:00</div>
-                    <div class="location">両家での会食（於：<a href="https://sapporo-jingisukan.info/74ten" target="_blank">成吉思汗だるま</a>）</div>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>3月10日（火）</h4>
-                    <div class="time">10:00</div>
-                    <div class="location">ホテルをチェックアウト後、新千歳空港へ</div>
-                    <div class="time" style="margin-top: 10px;">お昼頃</div>
-                    <div class="location">新千歳空港 発、羽田空港へ</div>
-                    <div class="time" style="margin-top: 10px;">夕方頃</div>
-                    <div class="location">羽田空港 発、那覇空港へご帰着</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="oshiro" class="fade-in">
-            <h2>4.0 大城家様向け行程詳細</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>3月8日（日）</h4>
-                    <div class="time">7:55</div>
-                    <div class="location">福岡空港 発、新千歳空港へ</div>
-                    <div class="time" style="margin-top: 10px;">10:15</div>
-                    <div class="location">新千歳空港 着</div>
-                    <div class="time" style="margin-top: 10px;">10:30</div>
-                    <div class="location">JR新千歳線「札幌」駅へ移動</div>
-                    <div class="time" style="margin-top: 10px;">11:30</div>
-                    <div class="location">ホテルに到着後、お荷物をお預けいただけます</div>
-                    <div class="time" style="margin-top: 10px;">15:00</div>
-                    <div class="location">ホテル「FAV LUX 札幌すすきの」へチェックイン</div>
-                    <div class="time" style="margin-top: 10px;">18:00</div>
-                    <div class="location">両家顔合わせ会食（於：<a href="https://www.hyousetsu.co.jp/?lad_media=lis_google&lec_tm=c-10099729.m-1.a-295088679.d-c.kwd-738946907651.kw-858393857.aw-33795937.ak-6819406232.as-&gad_source=1&gad_campaignid=20065564069&gbraid=0AAAAAplft7nKlogPsPg3poxhW1OZljapC&gclid=Cj0KCQiAsY3LBhCwARIsAF6O6XiQ1tznbIXao2HFrzHB08eJV_2OgTu4IeweBtS1hL0gRI723giEeWgaAh9jEALw_wcB" target="_blank">氷雪の門</a>）</div>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>3月9日（月）</h4>
-                    <div class="time">9:00</div>
-                    <div class="location">各家でホテルを出発し、小樽へ</div>
-                    <div class="time" style="margin-top: 10px;">10:00～15:00</div>
-                    <div class="location">小樽市内にて自由行動・観光</div>
-                    <div class="time" style="margin-top: 10px;">16:00</div>
-                    <div class="location">札幌のホテルへ帰着</div>
-                    <div class="time" style="margin-top: 10px;">16:00～20:00</div>
-                    <div class="location">自由行動</div>
-                    <div class="time" style="margin-top: 10px;">20:00</div>
-                    <div class="location">両家での会食（於：<a href="https://sapporo-jingisukan.info/74ten" target="_blank">成吉思汗だるま</a>）</div>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>3月10日（火）</h4>
-                    <div class="time">10:00</div>
-                    <div class="location">ホテルをチェックアウト後、新千歳空港へ</div>
-                    <div class="time" style="margin-top: 10px;">14:20</div>
-                    <div class="location">新千歳空港 発、福岡空港へ</div>
-                    <div class="time" style="margin-top: 10px;">17:00</div>
-                    <div class="location">福岡空港 ご帰着</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="events" class="fade-in">
-            <h2>5.0 主要イベント・会食のご案内</h2>
-            <p>両家の交流の核となる主要な会食とイベントについて、改めてご案内いたします。事前に内容をご確認いただくことで、当日をより一層お楽しみいただければ幸いです。</p>
-
-            <h3>会食のご案内</h3>
-
-            <div class="event-card">
-                <div class="date">3月7日（土）19:00</div>
-                <div class="restaurant">
-                    <a href="https://tabelog.com/hokkaido/A0101/A010103/1000442/" target="_blank">鳥八の魚や</a>
-                </div>
-                <p>新城家の皆様へご挨拶の場とさせていただきます。新鮮な海の幸をご堪能ください。</p>
-            </div>
-
-            <div class="event-card">
-                <div class="date">3月8日（日）18:00 | 両家顔合わせ</div>
-                <div class="restaurant">
-                    <a href="https://www.hyousetsu.co.jp/?lad_media=lis_google&lec_tm=c-10099729.m-1.a-295088679.d-c.kwd-738946907651.kw-858393857.aw-33795937.ak-6819406232.as-&gad_source=1&gad_campaignid=20065564069&gbraid=0AAAAAplft7nKlogPsPg3poxhW1OZljapC&gclid=Cj0KCQiAsY3LBhCwARIsAF6O6XiQ1tznbIXao2HFrzHB08eJV_2OgTu4IeweBtS1hL0gRI723giEeWgaAh9jEALw_wcB" target="_blank">氷雪の門</a>
-                </div>
-                <p>両家の皆様が初めてお顔を合わせる、本旅行の最も大切な会食です。北海道名物の豪華な「カニ懐石」をご用意しております。</p>
-            </div>
-
-            <div class="event-card">
-                <div class="date">3月9日（月）20:00</div>
-                <div class="restaurant">
-                    <a href="https://sapporo-jingisukan.info/74ten" target="_blank">成吉思汗だるま</a>
-                </div>
-                <p>北海道を代表する郷土料理であるジンギスカンをご用意いたしました。和やかな雰囲気の中、旅の思い出を語り合うひとときをお過ごしください。</p>
-            </div>
-
-            <h3>小樽日帰り観光のご案内</h3>
-            <p>3月9日（月）は、各ご家族で小樽に足を運んでいただければと思います。</p>
-            <p>移動や観光プランは各ご家族のご都合やご希望に合わせてご自由にお楽しみください。</p>
-            <p>小樽の歴史的な街並みや運河、美味しいグルメなど、北海道ならではの魅力を存分にご体験いただければ幸いです。</p>
-            <p>なお、16:00頃を目安に札幌のホテルへお戻りいただく予定です。道中もどうぞゆっくりとお過ごしください。</p>
-        </section>
-
-        <section id="hotels" class="fade-in">
-            <h2>6.0 宿泊施設情報</h2>
-
-            <div class="hotel-card">
-                <h4>ランプライトブックスホテル札幌</h4>
-                <div class="date">宿泊日: 3月7日（土）</div>
-                <a href="https://www.lamplightbookshotel.com/sapporo/" target="_blank">公式サイトへ</a>
-            </div>
-
-            <div class="hotel-card">
-                <h4>FAV LUX 札幌すすきの</h4>
-                <div class="date">宿泊日: 3月8日（日）、3月9日（月）</div>
-                <a href="https://fav-hotels.com/hotels/lux/sapporosusukino/" target="_blank">公式サイトへ</a>
-            </div>
-        </section>
-
-        <section id="closing" class="fade-in">
-            <h2>8.0 おわりに</h2>
-            <div class="highlight-box">
-                <p>本旅行にかかる費用につきましては、私たち二人で負担させていただきますので、どうぞご安心ください。</p>
-            </div>
-            <p>このご案内が、皆様の旅の準備の一助となれば幸いです。</p>
-            <p>何よりも、この顔合わせとご旅行が、新城家と大城家の皆様にとって忘れられない、温かく素晴らしい思い出となりますことを心から願っております。</p>
-            <p>寒さ厳しき折でもございますので、道中、お気をつけてお越しくださいますよう、心よりお願い申し上げます。</p>
-        </section>
-
-        <footer>
-            <p>大城 駿・新城 友梨　より</p>
-            
-        </footer>
+            <a href="details.html" class="enter-button">サイトへ進む</a>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // 雪の結晶の文字
+        const snowflakes = ['❄', '❅', '❆', '✻', '✼', '✽', '✾', '✿', '❀'];
+        
+        // 雪を生成する関数
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+            
+            // ランダムなサイズ（0.5em ～ 1.5em）
+            const size = Math.random() * 1 + 0.5;
+            snowflake.style.fontSize = size + 'em';
+            
+            // ランダムな開始位置
+            snowflake.style.left = Math.random() * 100 + '%';
+            
+            // ランダムな横方向のドリフト（-50px ～ 50px）
+            const drift = (Math.random() - 0.5) * 100;
+            snowflake.style.setProperty('--drift', drift + 'px');
+            
+            // ランダムなアニメーション時間（5秒 ～ 15秒）
+            const duration = Math.random() * 10 + 5;
+            snowflake.style.animation = `snowfall ${duration}s linear infinite`;
+            
+            // ランダムな遅延（0秒 ～ 5秒）
+            snowflake.style.animationDelay = Math.random() * 5 + 's';
+            
+            document.querySelector('.top-page').appendChild(snowflake);
+            
+            // アニメーション終了後に削除（念のため）
+            setTimeout(() => {
+                if (snowflake.parentNode) {
+                    snowflake.remove();
+                }
+            }, (duration + 5) * 1000);
+        }
+        
+        // 定期的に雪を生成
+        function startSnowfall() {
+            // 初回はすぐに生成
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createSnowflake();
+                }, i * 200);
+            }
+            
+            // その後は定期的に生成
+            setInterval(() => {
+                createSnowflake();
+            }, 300);
+        }
+        
+        // ページ読み込み時に開始
+        window.addEventListener('load', () => {
+            startSnowfall();
+        });
+        
+        // リサイズ時に雪の数を調整
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                const snowflakes = document.querySelectorAll('.snowflake');
+                // 画面サイズに応じて雪の数を調整
+                const maxSnowflakes = Math.floor(window.innerWidth / 30);
+                if (snowflakes.length > maxSnowflakes) {
+                    for (let i = maxSnowflakes; i < snowflakes.length; i++) {
+                        snowflakes[i].remove();
+                    }
+                }
+            }, 250);
+        });
+    </script>
 </body>
 </html>
